@@ -7,6 +7,8 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-offline",
+    "gatsby-plugin-root-import",
+    "gatsby-plugin-layout",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -18,9 +20,33 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: `${__dirname}/src/assets/images`,
       },
       __key: "images",
+    },
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 0.1,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Archia"],
+          urls: [`/fonts/fonts.css`],
+        },
+      },
+    },
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: "http://localhost:1337",
+        contentTypes: [],
+        singleTypes: ["home-page", "about-module", "nav"],
+        queryLimit: 1000,
+      },
     },
   ],
 };
