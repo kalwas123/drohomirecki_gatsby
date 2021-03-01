@@ -43,9 +43,22 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: "http://localhost:1337",
-        contentTypes: [],
-        singleTypes: ["home-page", "about-module", "nav"],
+        contentTypes: ["moments"],
+        singleTypes: [
+          "home-page",
+          "about-module",
+          "nav",
+          "idea-module",
+          "history-module",
+          "contact",
+        ],
         queryLimit: 1000,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        threshold: 0.25,
       },
     },
   ],

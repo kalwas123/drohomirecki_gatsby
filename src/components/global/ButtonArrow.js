@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "src/assets/styles/colors.js";
 import typographySizes from "src/assets/styles/typographySizes.js";
 
 const ButtonWrapper = styled.button`

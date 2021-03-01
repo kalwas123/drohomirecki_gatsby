@@ -22,6 +22,7 @@ const PopUpModalWrapper = styled.div`
   top: 8rem;
   z-index: 110;
 
+  min-height: calc(100vh - 8rem);
   max-height: calc(100vh - 8rem);
 
   ::after {
@@ -117,6 +118,13 @@ const PopUpBodyText = styled(BodyText)`
   margin-bottom: 5rem;
   @media (max-width: ${mediaQuery.tablet}) {
     width: 100%;
+  }
+  ul {
+    margin-bottom: 5rem;
+    margin-left: ${sizes.smallInMargin}rem;
+  }
+  li {
+    padding: 0.5rem 0;
   }
 `;
 
@@ -232,7 +240,24 @@ const Line2 = styled(Line)`
   transform: rotate(-45deg) translateY(0px);
 `;
 
-const PopUpModal = ({ info, open }) => (
+const ProcessIcon = styled(Img)`
+  max-width: 100px;
+  max-height: 80px;
+  margin-bottom: 5rem;
+  img {
+    object-fit: contain !important;
+  }
+`;
+const ProcessPhase = styled(BodyText)`
+  margin-bottom: 2.5rem;
+`;
+
+const ProcessSmalDescription = styled(BodyText)`
+  margin-bottom: 4rem;
+  width: 66.66%;
+`;
+
+const PopUpModalProcess = ({ info, open }) => (
   <ContextConsumer>
     {({ data, set }) => (
       <>
@@ -240,7 +265,7 @@ const PopUpModal = ({ info, open }) => (
           className={open === true ? "open" : ""}
           onClick={() =>
             set({
-              modalOpen: false,
+              processModalOpen: false,
             })
           }
         />
@@ -250,7 +275,7 @@ const PopUpModal = ({ info, open }) => (
               <CloseBtn
                 onClick={() =>
                   set({
-                    modalOpen: false,
+                    processModalOpen: false,
                   })
                 }
               >
@@ -258,28 +283,22 @@ const PopUpModal = ({ info, open }) => (
                 <Line2 />
               </CloseBtn>
               <PopUpModalTop>
+                <ProcessIcon fluid={info.Icon.childImageSharp.fluid} />
                 <PopUpBigTitle>{info.Title}</PopUpBigTitle>
+                <ProcessPhase>{info.Phase}</ProcessPhase>
+                <ProcessSmalDescription>
+                  {info.Description}
+                </ProcessSmalDescription>
               </PopUpModalTop>
               <PopUpContentWrapper>
                 <StripeBox />
                 <PopUpTextWrapper>
-                  {info.Module.map((document) => {
-                    if (document.Text !== null) {
-                      return (
-                        <PopUpBodyText>
-                          <ReactMarkdown
-                            className={"marginP"}
-                            source={document.Text}
-                          />
-                        </PopUpBodyText>
-                      );
-                    }
-                    if (document.Img !== null) {
-                      return (
-                        <PopUpImg fluid={document.Img.childImageSharp.fluid} />
-                      );
-                    }
-                  })}
+                  <PopUpBodyText>
+                    <ReactMarkdown
+                      className={"marginP"}
+                      source={info.Long_description}
+                    />
+                  </PopUpBodyText>
                 </PopUpTextWrapper>
               </PopUpContentWrapper>
             </PopUpModalBox>
@@ -290,4 +309,4 @@ const PopUpModal = ({ info, open }) => (
   </ContextConsumer>
 );
 
-export default PopUpModal;
+export default PopUpModalProcess;

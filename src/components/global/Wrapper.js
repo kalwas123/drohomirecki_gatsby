@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import mediaQuery from "src/assets/styles/mediaQuery";
 import sizes from "src/assets/styles/sizes.js";
-import colors from "src/assets/styles/colors.js";
 import borderStyles from "src/assets/styles/borderStyles.js";
 
 const Wrapper = styled.div`
@@ -19,6 +18,7 @@ const Wrapper = styled.div`
     height: 100%;
     background-image: ${borderStyles.backgroundImageV};
     background-size: ${borderStyles.backgroundSizeV};
+    z-index: 9999;
   }
   ::before {
     content: "";

@@ -8,10 +8,14 @@ const BodyText = styled.p`
   color: ${(props) => (props.color ? props.color : colors.dark)};
   line-height: 1.33;
   font-weight: normal;
+  white-space: pre-line;
   .marginP {
     p {
       margin-bottom: 1rem;
     }
+  }
+  strong {
+    font-weight: bold;
   }
 `;
 

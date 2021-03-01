@@ -8,6 +8,7 @@ const BigTitle = styled.h2`
   color: ${(props) => (props.Color ? props.Color : colors.darkGrey)};
   line-height: 1.2;
   font-weight: normal;
+  text-transform: uppercase;
 `;
 
 export default BigTitle;

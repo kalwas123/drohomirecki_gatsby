@@ -5,6 +5,8 @@ const defaultContextValue = {
     // set your initial data shape here
     modalOpen: false,
     modalType: null,
+    processModalOpen: false,
+    processModalType: null,
     navOpen: false,
   },
   set: () => {},

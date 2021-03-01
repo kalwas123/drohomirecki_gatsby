@@ -29,8 +29,8 @@ const CloseBtn = styled.button`
   outline: 0;
   background: transparent;
   cursor: pointer;
-  z-index: 10;
-
+  z-index: 11;
+  background-color: ${colors.white};
   flex-shrink: 0;
   ::after {
     content: "";
@@ -102,7 +102,7 @@ const BgWhite = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 5;
+  z-index: 10;
   pointer-events: none;
   opacity: 0;
   transition: 1s;
@@ -165,8 +165,14 @@ const OutWrapper = styled(Wrapper)`
   ::before {
     display: none;
   }
+  ::after {
+    display: none;
+  }
   &.open {
     ::before {
+      display: block;
+    }
+    ::after {
       display: block;
     }
   }
@@ -359,12 +365,13 @@ export default function Nav() {
                     </ContentWrapperTop>
                     <ContentWrapperBottom>
                       <NavLinkOffer
+                        aria-label="scroll down"
                         onClick={() =>
                           set({
                             navOpen: data.navOpen ? false : true,
                           })
                         }
-                        to="/"
+                        to="/#oferta"
                       >
                         Oferta<span>→</span>
                       </NavLinkOffer>
