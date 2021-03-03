@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import colors from "src/assets/styles/colors.js";
 import DottedBox from "src/components/global/DottedBox.js";
@@ -232,62 +232,77 @@ const Line2 = styled(Line)`
   transform: rotate(-45deg) translateY(0px);
 `;
 
-const PopUpModal = ({ info, open }) => (
-  <ContextConsumer>
-    {({ data, set }) => (
-      <>
-        <WhiteBg
-          className={open === true ? "open" : ""}
-          onClick={() =>
-            set({
-              modalOpen: false,
-            })
-          }
-        />
-        <PopUpModalWrapper className={open === true ? "open" : ""}>
-          {info ? (
-            <PopUpModalBox className={open === true ? "open" : ""}>
-              <CloseBtn
-                onClick={() =>
-                  set({
-                    modalOpen: false,
-                  })
-                }
+const PopUpModal = ({ info, open }) => {
+  const container = useRef();
+  const scrollTop = () => {
+    container.current.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  function onClose(set) {
+    console.log("test");
+
+    scrollTop();
+
+    set({
+      modalOpen: false,
+    });
+  }
+
+  return (
+    <ContextConsumer>
+      {({ data, set }) => (
+        <>
+          <WhiteBg
+            className={open === true ? "open" : ""}
+            onClick={() =>
+              set({
+                modalOpen: false,
+              })
+            }
+          />
+          <PopUpModalWrapper className={open === true ? "open" : ""}>
+            {info ? (
+              <PopUpModalBox
+                ref={container}
+                className={open === true ? "open" : ""}
               >
-                <Line1 />
-                <Line2 />
-              </CloseBtn>
-              <PopUpModalTop>
-                <PopUpBigTitle>{info.Title}</PopUpBigTitle>
-              </PopUpModalTop>
-              <PopUpContentWrapper>
-                <StripeBox />
-                <PopUpTextWrapper>
-                  {info.Module.map((document) => {
-                    if (document.Text !== null) {
-                      return (
-                        <PopUpBodyText>
-                          <ReactMarkdown
-                            className={"marginP"}
-                            source={document.Text}
+                <CloseBtn onClick={() => onClose(set)}>
+                  <Line1 />
+                  <Line2 />
+                </CloseBtn>
+                <PopUpModalTop>
+                  <PopUpBigTitle>{info.Title}</PopUpBigTitle>
+                </PopUpModalTop>
+                <PopUpContentWrapper>
+                  <StripeBox />
+                  <PopUpTextWrapper>
+                    {info.Module.map((document) => {
+                      if (document.Text !== null) {
+                        return (
+                          <PopUpBodyText>
+                            <ReactMarkdown
+                              className={"marginP"}
+                              source={document.Text}
+                            />
+                          </PopUpBodyText>
+                        );
+                      }
+                      if (document.Img !== null) {
+                        return (
+                          <PopUpImg
+                            fluid={document.Img.childImageSharp.fluid}
                           />
-                        </PopUpBodyText>
-                      );
-                    }
-                    if (document.Img !== null) {
-                      return (
-                        <PopUpImg fluid={document.Img.childImageSharp.fluid} />
-                      );
-                    }
-                  })}
-                </PopUpTextWrapper>
-              </PopUpContentWrapper>
-            </PopUpModalBox>
-          ) : null}
-        </PopUpModalWrapper>
-      </>
-    )}
-  </ContextConsumer>
-);
+                        );
+                      }
+                    })}
+                  </PopUpTextWrapper>
+                </PopUpContentWrapper>
+              </PopUpModalBox>
+            ) : null}
+          </PopUpModalWrapper>
+        </>
+      )}
+    </ContextConsumer>
+  );
+};
 
 export default PopUpModal;

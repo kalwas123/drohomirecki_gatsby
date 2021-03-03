@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import colors from "src/assets/styles/colors.js";
 import DottedBox from "src/components/global/DottedBox.js";
@@ -242,56 +242,68 @@ const ProcessSmalDescription = styled(BodyText)`
   width: 66.66%;
 `;
 
-const PopUpModalProcess = ({ info, open }) => (
-  <ContextConsumer>
-    {({ data, set }) => (
-      <>
-        <WhiteBg
-          className={open === true ? "open" : ""}
-          onClick={() =>
-            set({
-              processModalOpen: false,
-            })
-          }
-        />
-        <PopUpModalWrapper className={open === true ? "open" : ""}>
-          {info ? (
-            <PopUpModalBox className={open === true ? "open" : ""}>
-              <CloseBtn
-                onClick={() =>
-                  set({
-                    processModalOpen: false,
-                  })
-                }
+const PopUpModalProcess = ({ info, open }) => {
+  const container = useRef();
+  const scrollTop = () => {
+    container.current.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  function onClose(set) {
+    console.log("test");
+
+    scrollTop();
+
+    set({
+      processModalOpen: false,
+    });
+  }
+  return (
+    <ContextConsumer>
+      {({ data, set }) => (
+        <>
+          <WhiteBg
+            className={open === true ? "open" : ""}
+            onClick={() =>
+              set({
+                processModalOpen: false,
+              })
+            }
+          />
+          <PopUpModalWrapper className={open === true ? "open" : ""}>
+            {info ? (
+              <PopUpModalBox
+                ref={container}
+                className={open === true ? "open" : ""}
               >
-                <Line1 />
-                <Line2 />
-              </CloseBtn>
-              <PopUpModalTop>
-                <ProcessIcon fluid={info.Icon.childImageSharp.fluid} />
-                <PopUpBigTitle>{info.Title}</PopUpBigTitle>
-                <ProcessPhase>{info.Phase}</ProcessPhase>
-                <ProcessSmalDescription>
-                  {info.Description}
-                </ProcessSmalDescription>
-              </PopUpModalTop>
-              <PopUpContentWrapper>
-                <StripeBox />
-                <PopUpTextWrapper>
-                  <PopUpBodyText>
-                    <ReactMarkdown
-                      className={"marginP"}
-                      source={info.Long_description}
-                    />
-                  </PopUpBodyText>
-                </PopUpTextWrapper>
-              </PopUpContentWrapper>
-            </PopUpModalBox>
-          ) : null}
-        </PopUpModalWrapper>
-      </>
-    )}
-  </ContextConsumer>
-);
+                <CloseBtn onClick={() => onClose(set)}>
+                  <Line1 />
+                  <Line2 />
+                </CloseBtn>
+                <PopUpModalTop>
+                  <ProcessIcon fluid={info.Icon.childImageSharp.fluid} />
+                  <PopUpBigTitle>{info.Title}</PopUpBigTitle>
+                  <ProcessPhase>{info.Phase}</ProcessPhase>
+                  <ProcessSmalDescription>
+                    {info.Description}
+                  </ProcessSmalDescription>
+                </PopUpModalTop>
+                <PopUpContentWrapper>
+                  <StripeBox />
+                  <PopUpTextWrapper>
+                    <PopUpBodyText>
+                      <ReactMarkdown
+                        className={"marginP"}
+                        source={info.Long_description}
+                      />
+                    </PopUpBodyText>
+                  </PopUpTextWrapper>
+                </PopUpContentWrapper>
+              </PopUpModalBox>
+            ) : null}
+          </PopUpModalWrapper>
+        </>
+      )}
+    </ContextConsumer>
+  );
+};
 
 export default PopUpModalProcess;

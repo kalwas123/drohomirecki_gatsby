@@ -990,7 +990,11 @@ class IndexPage extends React.Component {
                   )}
                 </ProcessWrapper>
                 <ProcessCta>
-                  <ProcessBtn href="mailto:">zapytaj o ofertę</ProcessBtn>
+                  <ProcessBtn
+                    href={`mailto: ${this.props.data.strapiContact.Mail}`}
+                  >
+                    zapytaj o ofertę
+                  </ProcessBtn>
                 </ProcessCta>
               </ProcessSectionWrapper>
             </Section>
@@ -1148,6 +1152,9 @@ export const query = graphql`
           Description
         }
       }
+    }
+    strapiContact {
+      Mail
     }
   }
 `;
