@@ -41,4 +41,35 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { id: edge.node.id },
     });
   });
+
+  const realizationLayout = path.resolve(`src/layouts/realization.js`);
+  const resultRealisation = await graphql(
+    `
+      query loadRealizations {
+        allStrapiRealizations {
+          edges {
+            node {
+              Title
+              id
+            }
+          }
+        }
+      }
+    `
+  );
+
+  // Create blog post pages.
+  resultRealisation.data.allStrapiRealizations.edges.forEach((edge) => {
+    const slugifyedTitle = slugify(edge.node.Title, {
+      lower: true,
+      strict: true,
+    });
+
+    createPage({
+      // Path for this page — required
+      path: `realizacje/${slugifyedTitle}`,
+      component: realizationLayout,
+      context: { id: edge.node.id },
+    });
+  });
 };
