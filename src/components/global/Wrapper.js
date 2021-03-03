@@ -4,7 +4,7 @@ import sizes from "src/assets/styles/sizes.js";
 import borderStyles from "src/assets/styles/borderStyles.js";
 
 const Wrapper = styled.div`
-  width: calc(100% - ${sizes.bigMargin * 2}rem);
+  width: calc(100vw - ${sizes.bigMargin * 2}rem);
   margin: 0 auto;
   margin-top: 8rem;
 
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     height: 100%;
     background-image: ${borderStyles.backgroundImageV};
     background-size: ${borderStyles.backgroundSizeV};
-    z-index: 9999;
+    z-index: 9;
   }
   ::before {
     content: "";

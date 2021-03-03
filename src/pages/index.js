@@ -529,6 +529,7 @@ const MomentsBtn = styled(Link)`
   font-size: 1.6rem;
   transition: all 0.5s;
   cursor: pointer;
+  text-decoration: none;
   :hover {
     background-color: ${colors.gold};
     border: ${colors.white} 1px solid;
@@ -917,6 +918,8 @@ class IndexPage extends React.Component {
                 </MomentsTitle>
                 {this.props.data.allStrapiMoments.edges.map((document) => (
                   <Moment
+                    curentType="Momenty_przelomowe"
+                    type={document.node.Type}
                     title={document.node.Title}
                     year={document.node.Years}
                     description={document.node.Description}
@@ -932,7 +935,9 @@ class IndexPage extends React.Component {
                     ></MomentsImg>
                   </MomentsImgWrapper>
                   <MomentsBtnWrapper>
-                    <MomentsBtn>przejdź do kalendarium</MomentsBtn>
+                    <MomentsBtn to="/momenty_przelomowe">
+                      przejdź do kalendarium
+                    </MomentsBtn>
                   </MomentsBtnWrapper>
                 </MomentsBottom>
                 <MomentsEmptyWrapper>

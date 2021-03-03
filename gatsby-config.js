@@ -9,12 +9,12 @@ module.exports = {
     "gatsby-plugin-offline",
     "gatsby-plugin-root-import",
     "gatsby-plugin-layout",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/images/icon.png",
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-manifest",
+    //   options: {
+    //     icon: "src/images/icon.png",
+    //   },
+    // },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
@@ -43,7 +43,7 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: "http://localhost:1337",
-        contentTypes: ["moments"],
+        contentTypes: ["moments", "news-blogs"],
         singleTypes: [
           "home-page",
           "about-module",
@@ -58,7 +58,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
-        threshold: 0.25,
+        threshold: 0.1,
       },
     },
   ],

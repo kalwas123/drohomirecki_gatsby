@@ -12,10 +12,14 @@ import mediaQuery from "src/assets/styles/mediaQuery";
 
 const MomentWrapper = styled.div`
   font-size: ${typographySizes.s}rem;
-  display: flex;
+  display: none;
   align-items: stretch;
   width: 100%;
-  @media (max-width: ${mediaQuery.tablet}) {
+
+  &.active {
+    display: flex;
+  }
+  @media (max-width: ${mediaQuery.laptop}) {
     flex-direction: column;
   }
 `;
@@ -27,7 +31,7 @@ const TitleWrapper = styled(DottedBox)`
   display ::after {
     display: none;
   }
-  @media (max-width: ${mediaQuery.tablet}) {
+  @media (max-width: ${mediaQuery.laptop}) {
     width: 100%;
   }
 `;
@@ -91,7 +95,7 @@ const Description = styled(DottedBox)`
       transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
     }
   }
-  @media (max-width: ${mediaQuery.tablet}) {
+  @media (max-width: ${mediaQuery.laptop}) {
     width: calc(100% - ${sizes.smallInMargin * 2}rem);
   }
 `;
@@ -101,8 +105,14 @@ class Moment extends React.Component {
   };
 
   render() {
+    let isActive = false;
+    this.props.type === this.props.curentType
+      ? (isActive = true)
+      : (isActive = false);
+
     return (
-      <MomentWrapper>
+      <MomentWrapper className={isActive ? "active" : null}>
+        {console.log(isActive)}
         <TitleWrapper>
           <TitleWrapperTop>
             <Year>{this.props.year}</Year>

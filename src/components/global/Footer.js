@@ -20,7 +20,10 @@ const StyledWrapper = styled(Wrapper)`
 const FooterWrapper = styled.footer`
   position: relative;
   padding: 5rem ${sizes.smallInMargin}rem;
-
+  img {
+    width: 7rem;
+    height: 7rem;
+  }
   ::after {
     content: "";
     position: absolute;
@@ -114,6 +117,7 @@ export default function Footer() {
       render={(data) => (
         <StyledWrapper>
           <FooterWrapper
+            id="footer"
             data-sal="slide-down"
             data-sal-easing="ease"
             data-sal-duration="1000"

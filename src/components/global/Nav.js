@@ -247,6 +247,10 @@ const NavLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   padding: 1rem 0;
+  &.active {
+    text-decoration: underline;
+    cursor: not-allowed;
+  }
   span {
     opacity: 0;
     transform: translateX(-20px);
@@ -321,43 +325,47 @@ export default function Nav() {
                           O mnie <span>→</span>
                         </NavLink>
                         <NavLink
+                          activeClassName="active"
                           onClick={() =>
                             set({
                               navOpen: data.navOpen ? false : true,
                             })
                           }
-                          to="/"
+                          to="/momenty_przelomowe"
                         >
                           Kalendarium <span>→</span>
                         </NavLink>
                         <NavLink
+                          activeClassName="active"
                           onClick={() =>
                             set({
                               navOpen: data.navOpen ? false : true,
                             })
                           }
-                          to="/"
+                          to="/realizacje"
                         >
                           Realizacje <span>→</span>
                         </NavLink>
                         <NavLink
+                          activeClassName="active"
                           onClick={() =>
                             set({
                               navOpen: data.navOpen ? false : true,
                             })
                           }
-                          to="/"
+                          to="/news-blog/"
                         >
                           Blog/News
                           <span>→</span>
                         </NavLink>
                         <NavLink
+                          aria-label="scroll down"
                           onClick={() =>
                             set({
                               navOpen: data.navOpen ? false : true,
                             })
                           }
-                          to="/"
+                          to="#footer"
                         >
                           Kontakt <span>→</span>
                         </NavLink>
