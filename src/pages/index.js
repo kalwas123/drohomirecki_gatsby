@@ -245,6 +245,9 @@ const IdeaSectionWrapper = styled(DottedBox)`
       "decimg smalclaim"
       "emptybottom1   emptybottom2 ";
   }
+  :before {
+    display: none;
+  }
 `;
 
 const IdeaInfo = styled(DottedBox)`
@@ -651,6 +654,9 @@ const ProcessStep = styled(DottedBox)`
   }
   @media (max-width: ${mediaQuery.tablet}) {
     width: calc(100% - ${sizes.smallInMargin * 2}rem);
+    ::after {
+      display: none;
+    }
   }
 `;
 
