@@ -12,7 +12,6 @@ import SmallTitle from "src/components/typography/SmallTitle.js";
 import BodyText from "src/components/typography/BodyText.js";
 import sizes from "src/assets/styles/sizes.js";
 import BigTitle from "src/components/typography/BigTitle.js";
-// import StripeBox from "src/components/global/StripeBox.js";
 import ReactMarkdown from "react-markdown";
 import Img from "gatsby-image";
 import PopUpModal from "src/components/home/PopUpModal.js";
@@ -25,6 +24,7 @@ import mediaQuery from "src/assets/styles/mediaQuery";
 import Section from "src/components/global/Section.js";
 import StripeBox from "src/components/global/StripeBox.js";
 import Moment from "src/components/global/moments/Moment.js";
+import SEO from "src/components/global/SEO.js";
 
 const StyledWrapper = styled(Wrapper)`
   /* &.modal-open {
@@ -713,6 +713,11 @@ class IndexPage extends React.Component {
       <ContextConsumer>
         {({ data, set }) => (
           <StyledWrapper className={data.modalOpen ? "modal-open" : ""}>
+            <SEO
+              title={this.props.data.strapiHomePage.SEO.Title}
+              description={this.props.data.strapiHomePage.SEO.Description}
+              image={this.props.data.strapiHomePage.SEO.Img.publicURL}
+            />
             <Nav />
             <PopUpModal info={data.modalType} open={data.modalOpen} />
             <PopUpModalProcess
@@ -761,7 +766,7 @@ class IndexPage extends React.Component {
                   data-sal-duration="1000"
                   data-sal-delay="600"
                 >
-                  <img src={Logo} />
+                  <img src={Logo} alt="logo" />
                 </HeaderLeftTop>
                 <HeaderCenterTop
                   data-sal="slide-up"
@@ -1068,6 +1073,13 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+      SEO {
+        Description
+        Title
+        Img {
+          publicURL
         }
       }
     }

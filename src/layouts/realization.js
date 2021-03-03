@@ -6,25 +6,22 @@ import typographySizes from "src/assets/styles/typographySizes.js";
 import Wrapper from "src/components/global/Wrapper.js";
 import colors from "src/assets/styles/colors.js";
 import DottedBox from "src/components/global/DottedBox.js";
-import BackgroundImage from "gatsby-background-image";
 import borderStyles from "src/assets/styles/borderStyles.js";
-import SmallTitle from "src/components/typography/SmallTitle.js";
+
 import BodyText from "src/components/typography/BodyText.js";
 import sizes from "src/assets/styles/sizes.js";
 import BigTitle from "src/components/typography/BigTitle.js";
-// import StripeBox from "src/components/global/StripeBox.js";
+
 import ReactMarkdown from "react-markdown";
 import Img from "gatsby-image";
-import PopUpModal from "src/components/home/PopUpModal.js";
-import PopUpModalProcess from "src/components/home/PopUpModalProcess.js";
 
 import Nav from "src/components/global/Nav.js";
 import mediaQuery from "src/assets/styles/mediaQuery";
-import Section from "src/components/global/Section.js";
+
 import StripeBox from "src/components/global/StripeBox.js";
-import Moment from "src/components/global/moments/Moment.js";
+
 import LogoLink from "src/components/global/LogoLink.js";
-import ButtonArrow from "src/components/global/ButtonArrow.js";
+import SEO from "src/components/global/SEO.js";
 
 const StyledWrapper = styled(Wrapper)``;
 const Header = styled.header`
@@ -122,7 +119,20 @@ const TableRow = styled(DottedBox)`
     display: none;
   }
 `;
-
+const Table = styled.div`
+  margin: 2rem 0;
+  position: relative;
+  ::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 0.1rem;
+    width: 100%;
+    background-image: ${borderStyles.backgroundImageH};
+    background-size: ${borderStyles.backgroundSizeH};
+  }
+`;
 const TableRowTitle = styled.h4`
   font-weight: bold;
   font-size: ${typographySizes.s}rem;
@@ -138,6 +148,10 @@ class RealizationLayout extends React.Component {
   render() {
     return (
       <StyledWrapper>
+        <SEO
+          title={this.props.data.strapiRealizations.Title}
+          image={this.props.data.strapiRealizations.Thumbnail_img.publicURL}
+        />
         <LogoLink />
         <Nav />
         <Header
@@ -170,7 +184,7 @@ class RealizationLayout extends React.Component {
               }
               if (document.Status !== null) {
                 return (
-                  <>
+                  <Table>
                     <TableRow>
                       <TableRowTitle>Status</TableRowTitle>
                       <TableRowContent>{document.Status}</TableRowContent>
@@ -195,7 +209,7 @@ class RealizationLayout extends React.Component {
                       <TableRowTitle>Autor</TableRowTitle>
                       <TableRowContent>{document.Author}</TableRowContent>
                     </TableRow>
-                  </>
+                  </Table>
                 );
               }
 
@@ -218,7 +232,9 @@ export const query = graphql`
   query RealizationLayout($id: String!) {
     strapiRealizations(id: { eq: $id }) {
       Title
-
+      Thumbnail_img {
+        publicURL
+      }
       Content {
         Text
         Img {

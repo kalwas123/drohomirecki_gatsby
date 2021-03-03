@@ -128,21 +128,6 @@ const PopUpBodyText = styled(BodyText)`
   }
 `;
 
-const PopUpImg = styled(Img)`
-  margin-bottom: 5rem;
-  position: relative;
-  left: -6rem;
-  width: calc(100% + 8rem);
-  max-height: 66rem;
-  object-fit: contain;
-
-  max-width: calc(83.33% + 8rem);
-  @media (max-width: ${mediaQuery.tablet}) {
-    max-width: calc(100% + 8rem);
-    max-height: 86rem;
-  }
-`;
-
 const WhiteBg = styled.div`
   position: fixed;
   left: 0;

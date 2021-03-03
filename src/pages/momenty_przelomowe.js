@@ -15,6 +15,7 @@ import mediaQuery from "src/assets/styles/mediaQuery";
 
 import Moment from "src/components/global/moments/Moment.js";
 import LogoLink from "src/components/global/LogoLink.js";
+import SEO from "src/components/global/SEO.js";
 
 const StyledWrapper = styled(Wrapper)`
   /* &.modal-open {
@@ -157,6 +158,11 @@ class IndexPage extends React.Component {
   render() {
     return (
       <StyledWrapper>
+        <SEO
+          title={this.props.data.strapiMomentsPage.SEO.Title}
+          description={this.props.data.strapiMomentsPage.SEO.Description}
+          image={this.props.data.strapiMomentsPage.SEO.Img.publicURL}
+        />
         <LogoLink />
         <Nav />
 
@@ -258,6 +264,15 @@ export const query = graphql`
           Type
           Years
           Description
+        }
+      }
+    }
+    strapiMomentsPage {
+      SEO {
+        Description
+        Title
+        Img {
+          publicURL
         }
       }
     }

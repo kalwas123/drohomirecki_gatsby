@@ -11,7 +11,7 @@ import BackgroundImage from "gatsby-background-image";
 import BodyText from "src/components/typography/BodyText.js";
 import sizes from "src/assets/styles/sizes.js";
 import BigTitle from "src/components/typography/BigTitle.js";
-// import StripeBox from "src/components/global/StripeBox.js";
+import SEO from "src/components/global/SEO.js";
 
 import Nav from "src/components/global/Nav.js";
 import mediaQuery from "src/assets/styles/mediaQuery";
@@ -113,6 +113,11 @@ class IndexPage extends React.Component {
   render() {
     return (
       <StyledWrapper>
+        <SEO
+          title={this.props.data.strapiNewsPage.SEO.Title}
+          description={this.props.data.strapiNewsPage.SEO.Description}
+          image={this.props.data.strapiNewsPage.SEO.Img.publicURL}
+        />
         <LogoLink />
         <Nav />
         <Header
@@ -156,6 +161,15 @@ class IndexPage extends React.Component {
 
 export const query = graphql`
   query Blog {
+    strapiNewsPage {
+      SEO {
+        Description
+        Title
+        Img {
+          publicURL
+        }
+      }
+    }
     allStrapiNewsBlogs(sort: { fields: Date, order: DESC }) {
       edges {
         node {

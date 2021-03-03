@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Drohomirecki",
+    title: `Home page - Rochman Drohomirecki Architekci`,
+    description: `Biuro architektoniczne podejmuje różnorodne zadania projektowe. Projektujemy obiekty mieszkalne – domy jednorodzinne, budynki wielorodzinne oraz obiekty użyteczności publicznej. Zajmujemy się również projektowaniem przestrzeni publicznych. `,
+    url: `rdarchitekci.pl`,
+    img: `/thumbnail.jpg`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
@@ -51,6 +54,9 @@ module.exports = {
           "idea-module",
           "history-module",
           "contact",
+          "moments-page",
+          "news-page",
+          "realizations-page",
         ],
         queryLimit: 1000,
       },

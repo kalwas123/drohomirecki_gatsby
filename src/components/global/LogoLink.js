@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import sizes from "src/assets/styles/sizes.js";
-import colors from "src/assets/styles/colors.js";
+
 import mediaQuery from "src/assets/styles/mediaQuery";
-import borderStyles from "src/assets/styles/borderStyles.js";
+
 import Logo from "src/assets/svg/logo-black.svg";
-import Wrapper from "src/components/global/Wrapper.js";
 
 import { Link } from "gatsby";
 
@@ -27,7 +26,7 @@ const LogoWrapper = styled(Link)`
 
 const LogoLink = () => (
   <LogoWrapper to="/">
-    <img src={Logo} />
+    <img src={Logo} alt="Logo" />
   </LogoWrapper>
 );
 

@@ -8,13 +8,11 @@ import colors from "src/assets/styles/colors.js";
 import DottedBox from "src/components/global/DottedBox.js";
 import BackgroundImage from "gatsby-background-image";
 
-import BodyText from "src/components/typography/BodyText.js";
 import sizes from "src/assets/styles/sizes.js";
 import BigTitle from "src/components/typography/BigTitle.js";
-// import StripeBox from "src/components/global/StripeBox.js";
-
 import Nav from "src/components/global/Nav.js";
 import mediaQuery from "src/assets/styles/mediaQuery";
+import SEO from "src/components/global/SEO.js";
 
 import LogoLink from "src/components/global/LogoLink.js";
 import ButtonArrow from "src/components/global/ButtonArrow.js";
@@ -91,20 +89,17 @@ const Title = styled.h2`
   margin-bottom: 3rem;
 `;
 
-const Description = styled(BodyText)`
-  width: 83.33%;
-  margin-bottom: 7rem;
-  @media (max-width: ${mediaQuery.mobile}) {
-    width: 100%;
-  }
-`;
-
 class Realizacje extends React.Component {
   state = { category: "Momenty_przelomowe" };
 
   render() {
     return (
       <StyledWrapper>
+        <SEO
+          title={this.props.data.strapiRealizationsPage.SEO.Title}
+          description={this.props.data.strapiRealizationsPage.SEO.Description}
+          image={this.props.data.strapiRealizationsPage.SEO.Img.publicURL}
+        />
         <LogoLink />
         <Nav />
         <Header
@@ -146,6 +141,15 @@ class Realizacje extends React.Component {
 
 export const query = graphql`
   query Realizacje {
+    strapiRealizationsPage {
+      SEO {
+        Description
+        Title
+        Img {
+          publicURL
+        }
+      }
+    }
     allStrapiRealizations {
       edges {
         node {

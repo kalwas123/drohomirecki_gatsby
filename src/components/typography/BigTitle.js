@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import typographySizes from "src/assets/styles/typographySizes.js";
 import colors from "src/assets/styles/colors.js";
-import mediaQuery from "src/assets/styles/mediaQuery";
 
 const BigTitle = styled.h2`
   font-size: ${typographySizes.l}rem;

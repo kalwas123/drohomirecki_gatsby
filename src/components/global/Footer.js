@@ -122,7 +122,7 @@ export default function Footer() {
             data-sal-easing="ease"
             data-sal-duration="1000"
           >
-            <img src={Logo} />
+            <img src={Logo} alt="logo" />
             <FotterBottom>
               <BodyText>{data.strapiContact.Name}</BodyText>
               <BodyText>
