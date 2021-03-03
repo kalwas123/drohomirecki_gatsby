@@ -26,7 +26,6 @@ const SEO = ({ title, description, image, article, noImg }) => {
       titleTemplate={`%s`}
       title={seo.title}
     >
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
