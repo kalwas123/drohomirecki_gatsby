@@ -67,17 +67,17 @@ module.exports = {
         threshold: 0.1,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Home page - Rochman Drohomirecki Architekci`,
-        short_name: `Drohomirecki`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#917B66`,
-        display: `minimal-ui`,
-        // icon: `${__dirname}/public/favicon.svg`, // This path is relative to the root of the site.
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Home page - Rochman Drohomirecki Architekci`,
+    //     short_name: `Drohomirecki`,
+    //     start_url: `/`,
+    //     background_color: `#ffffff`,
+    //     theme_color: `#917B66`,
+    //     display: `minimal-ui`,
+    //     icon: `${__dirname}/public/favicon.svg`, // This path is relative to the root of the site.
+    //   },
+    // },
   ],
 };
