@@ -85,6 +85,9 @@ const TopWrapper = styled.div`
   transform: translateY(-100%);
   justify-content: space-between;
   display: flex;
+  @media (max-width: ${mediaQuery.tablet}) {
+    display: none;
+  }
 `;
 const Circle = styled.div`
   height: 3.5rem;
