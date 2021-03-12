@@ -333,7 +333,7 @@ export default function Nav() {
                           }
                           to="/momenty_przelomowe"
                         >
-                          Kalendarium <span>→</span>
+                          Momenty przełomowe <span>→</span>
                         </NavLink>
                         <NavLink
                           activeClassName="active"
