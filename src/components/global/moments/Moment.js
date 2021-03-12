@@ -41,7 +41,7 @@ const TitleWrapperTop = styled(DottedBox)`
   justify-content: space-between;
 
   text-align: left;
-  padding: ${sizes.smallInMargin * 2}rem;
+  padding: ${sizes.smallInMargin * 2}rem ${sizes.smallInMargin}rem;
 
   ::after {
     display: none;
