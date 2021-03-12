@@ -127,7 +127,7 @@ class Moment extends React.Component {
           </TitleWrapperBottom>
         </TitleWrapper>
         <Description>
-          {this.props.description.length < 200 ? (
+          {this.props.description.length < 150 ? (
             <BodyTextSmall className={this.state.open ? "open" : ""}>
               {this.props.description}
             </BodyTextSmall>
