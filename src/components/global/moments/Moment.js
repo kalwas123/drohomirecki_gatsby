@@ -67,6 +67,7 @@ const TitleWrapperBottom = styled(DottedBox)`
 `;
 
 const TitleStripeBox = styled(StripeBox)`
+  min-height: 4rem;
   ::after {
     display: none;
   }
@@ -74,11 +75,13 @@ const TitleStripeBox = styled(StripeBox)`
 
 const Description = styled(DottedBox)`
   width: calc(58.33% - ${sizes.smallInMargin * 2}rem);
-  height: 100%;
+
   padding: ${sizes.smallInMargin}rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
   transition: all 0.5s;
+  flex: 1;
+
   :hover {
     background-color: ${colors.blue};
     transition: all 0.5s;
