@@ -161,7 +161,10 @@ class IndexPage extends React.Component {
         <SEO
           title={this.props.data.strapiMomentsPage.SEO.Title}
           description={this.props.data.strapiMomentsPage.SEO.Description}
-          image={this.props.data.strapiMomentsPage.SEO.Img.publicURL}
+          image={
+            this.props.data.strapiMomentsPage.SEO.Img.childImageSharp.original
+              .src
+          }
         />
         <LogoLink />
         <Nav />
@@ -272,7 +275,11 @@ export const query = graphql`
         Description
         Title
         Img {
-          publicURL
+          childImageSharp {
+            original {
+              src
+            }
+          }
         }
       }
     }

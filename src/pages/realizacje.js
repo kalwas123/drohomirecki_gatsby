@@ -98,7 +98,10 @@ class Realizacje extends React.Component {
         <SEO
           title={this.props.data.strapiRealizationsPage.SEO.Title}
           description={this.props.data.strapiRealizationsPage.SEO.Description}
-          image={this.props.data.strapiRealizationsPage.SEO.Img.publicURL}
+          image={
+            this.props.data.strapiRealizationsPage.SEO.Img.childImageSharp
+              .original.src
+          }
         />
         <LogoLink />
         <Nav />
@@ -146,7 +149,11 @@ export const query = graphql`
         Description
         Title
         Img {
-          publicURL
+          childImageSharp {
+            original {
+              src
+            }
+          }
         }
       }
     }

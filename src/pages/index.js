@@ -725,7 +725,10 @@ class IndexPage extends React.Component {
             <SEO
               title={this.props.data.strapiHomePage.SEO.Title}
               description={this.props.data.strapiHomePage.SEO.Description}
-              image={this.props.data.strapiHomePage.SEO.Img.publicURL}
+              image={
+                this.props.data.strapiHomePage.SEO.Img.childImageSharp.original
+                  .src
+              }
             />
             <Nav />
             <PopUpModal info={data.modalType} open={data.modalOpen} />
@@ -1092,7 +1095,11 @@ export const query = graphql`
         Description
         Title
         Img {
-          publicURL
+          childImageSharp {
+            original {
+              src
+            }
+          }
         }
       }
     }
