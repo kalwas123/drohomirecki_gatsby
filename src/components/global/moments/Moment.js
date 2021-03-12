@@ -39,10 +39,9 @@ const TitleWrapper = styled(DottedBox)`
 const TitleWrapperTop = styled(DottedBox)`
   display: flex;
   justify-content: space-between;
-  height: calc(10rem - ${sizes.smallInMargin * 2}rem);
-  align-items: center;
+
   text-align: left;
-  padding: ${sizes.smallInMargin}rem;
+  padding: ${sizes.smallInMargin * 2}rem;
 
   ::after {
     display: none;
@@ -56,6 +55,7 @@ const Year = styled(SmallTitle)`
 const Title = styled(SmallTitle)`
   text-align: left;
   width: 60%;
+  text-transform: uppercase;
 `;
 
 const TitleWrapperBottom = styled(DottedBox)`
@@ -83,20 +83,20 @@ const Description = styled(DottedBox)`
     background-color: ${colors.blue};
     transition: all 0.5s;
   }
-  ${BodyText} {
-    margin-bottom: 4rem;
-    height: 6rem;
-    overflow: hidden;
-    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  }
-  ${BodyText} {
-    &.open {
-      height: auto;
-      transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-    }
-  }
+
   @media (max-width: ${mediaQuery.laptop}) {
     width: calc(100% - ${sizes.smallInMargin * 2}rem);
+  }
+`;
+const BodyTextSmall = styled(BodyText)``;
+const BodyTextBig = styled(BodyText)`
+  margin-bottom: 4rem;
+  height: 6rem;
+  overflow: hidden;
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  &.open {
+    height: auto;
+    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
   }
 `;
 class Moment extends React.Component {
@@ -124,18 +124,26 @@ class Moment extends React.Component {
           </TitleWrapperBottom>
         </TitleWrapper>
         <Description>
-          <BodyText className={this.state.open ? "open" : ""}>
-            {this.props.description}
-          </BodyText>
-          <ButtonArrow
-            onClick={() =>
-              this.setState({
-                open: this.state.open ? false : true,
-              })
-            }
-          >
-            {this.state.open ? "Czytaj mniej" : "Czytaj więcej"}
-          </ButtonArrow>
+          {this.props.description.length < 200 ? (
+            <BodyTextSmall className={this.state.open ? "open" : ""}>
+              {this.props.description}
+            </BodyTextSmall>
+          ) : (
+            <>
+              <BodyTextBig className={this.state.open ? "open" : ""}>
+                {this.props.description}
+              </BodyTextBig>
+              <ButtonArrow
+                onClick={() =>
+                  this.setState({
+                    open: this.state.open ? false : true,
+                  })
+                }
+              >
+                {this.state.open ? "Czytaj mniej" : "Czytaj więcej"}
+              </ButtonArrow>
+            </>
+          )}
         </Description>
       </MomentWrapper>
     );
