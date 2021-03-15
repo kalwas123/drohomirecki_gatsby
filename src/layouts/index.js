@@ -15,14 +15,12 @@ const IndexPage = ({ children }) => {
   }
 
   return (
-    <>
-      <ContextProviderComponent>
-        <GlobalStyle />
+    <ContextProviderComponent>
+      <GlobalStyle />
 
-        {children}
-      </ContextProviderComponent>
+      {children}
       <Footer />
-    </>
+    </ContextProviderComponent>
   );
 };
 
