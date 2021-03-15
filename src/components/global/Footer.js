@@ -98,7 +98,7 @@ const FotterBottom = styled.div`
   }
 `;
 
-export default function Footer() {
+const Footer = () => {
   return (
     <StaticQuery
       query={graphql`
@@ -157,4 +157,5 @@ export default function Footer() {
       )}
     />
   );
-}
+};
+export default Footer;
