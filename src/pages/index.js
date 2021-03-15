@@ -728,7 +728,7 @@ class IndexPage extends React.Component {
       <StyledWrapper>
         <ContextConsumer>
           {({ data, set }) => (
-            <>
+            <SEO>
               <SEO
                 title={this.props.data.strapiHomePage.SEO.Title}
                 description={this.props.data.strapiHomePage.SEO.Description}
@@ -1027,7 +1027,7 @@ class IndexPage extends React.Component {
                   </ProcessCta>
                 </ProcessSectionWrapper>
               </Section>
-            </>
+            </SEO>
           )}
         </ContextConsumer>
       </StyledWrapper>
