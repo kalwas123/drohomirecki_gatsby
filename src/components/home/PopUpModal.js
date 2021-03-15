@@ -13,6 +13,7 @@ import ReactMarkdown from "react-markdown";
 import Img from "gatsby-image";
 import ContextConsumer from "src/layouts/Context.js";
 import mediaQuery from "src/assets/styles/mediaQuery";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const PopUpModalWrapper = styled.div`
   width: calc((100vw - 28rem) * 0.5833);
@@ -281,7 +282,7 @@ const PopUpModal = ({ info, open }) => {
                           <PopUpBodyText>
                             <ReactMarkdown
                               className={"marginP"}
-                              source={document.Text}
+                              source={noHangers(document.Text)}
                             />
                           </PopUpBodyText>
                         );

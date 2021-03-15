@@ -25,6 +25,7 @@ import Section from "src/components/global/Section.js";
 import StripeBox from "src/components/global/StripeBox.js";
 import Moment from "src/components/global/moments/Moment.js";
 import SEO from "src/components/global/SEO.js";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const StyledWrapper = styled(Wrapper)`
   /* &.modal-open {
@@ -760,10 +761,10 @@ class IndexPage extends React.Component {
                   data-sal-delay="300"
                 >
                   <HeaderTitle>
-                    {this.props.data.strapiHomePage.About_title}
+                    {noHangers(this.props.data.strapiHomePage.About_title)}
                   </HeaderTitle>
                   <HeaderText>
-                    {this.props.data.strapiHomePage.About_paragraph}
+                    {noHangers(this.props.data.strapiHomePage.About_paragraph)}
                   </HeaderText>
                   <ButtonArrow
                     onClick={() =>
@@ -905,7 +906,9 @@ class IndexPage extends React.Component {
                   <IdeaBodyText>
                     <ReactMarkdown
                       className={"marginP"}
-                      source={this.props.data.strapiHomePage.History_paragraph}
+                      source={noHangers(
+                        this.props.data.strapiHomePage.History_paragraph
+                      )}
                     />
                   </IdeaBodyText>
                   <ButtonArrow
