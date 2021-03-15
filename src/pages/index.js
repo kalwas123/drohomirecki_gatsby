@@ -726,7 +726,7 @@ class IndexPage extends React.Component {
   render() {
     return (
       <>
-        <StyledWrapper className={data.modalOpen ? "modal-open" : ""}>
+        <StyledWrapper>
           <ContextConsumer>
             {({ data, set }) => (
               <>
