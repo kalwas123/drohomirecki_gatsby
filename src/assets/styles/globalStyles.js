@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
 }
 html {
     font-size: 10px;
+
+    @media (min-width: 1400px) {
+        font-size: 0.706vw;
+  }
 }
  body{
      overflow-x: hidden;

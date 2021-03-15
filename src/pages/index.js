@@ -65,6 +65,11 @@ const Header = styled.header`
   }
 `;
 
+const StyledLogo = styled.img`
+  height: 5rem;
+  width: 21.9rem;
+`;
+
 const StyledBackgroundImage = styled(BackgroundImage)`
   height: 100%;
   width: 99.9%;
@@ -778,7 +783,7 @@ class IndexPage extends React.Component {
                   data-sal-duration="1000"
                   data-sal-delay="600"
                 >
-                  <img src={Logo} alt="logo" />
+                  <StyledLogo src={Logo} alt="logo" />
                 </HeaderLeftTop>
                 <HeaderCenterTop
                   data-sal="slide-up"
