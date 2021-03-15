@@ -9,6 +9,7 @@ import StripeBox from "src/components/global/StripeBox.js";
 import BodyText from "src/components/typography/BodyText.js";
 import ButtonArrow from "src/components/global/ButtonArrow.js";
 import mediaQuery from "src/assets/styles/mediaQuery";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const MomentWrapper = styled.div`
   font-size: ${typographySizes.s}rem;
@@ -119,7 +120,7 @@ class Moment extends React.Component {
         <TitleWrapper>
           <TitleWrapperTop>
             <Year>{this.props.year}</Year>
-            <Title>{this.props.title}</Title>
+            <Title>{noHangers(this.props.title)}</Title>
           </TitleWrapperTop>
           <TitleWrapperBottom>
             <TitleStripeBox />
@@ -129,12 +130,12 @@ class Moment extends React.Component {
         <Description>
           {this.props.description.length < 300 ? (
             <BodyTextSmall className={this.state.open ? "open" : ""}>
-              {this.props.description}
+              {noHangers(this.props.description)}
             </BodyTextSmall>
           ) : (
             <>
               <BodyTextBig className={this.state.open ? "open" : ""}>
-                {this.props.description}
+                {noHangers(this.props.description)}
               </BodyTextBig>
               <ButtonArrow
                 onClick={() =>
