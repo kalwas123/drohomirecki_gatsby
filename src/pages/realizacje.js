@@ -16,6 +16,7 @@ import SEO from "src/components/global/SEO.js";
 
 import LogoLink from "src/components/global/LogoLink.js";
 import ButtonArrow from "src/components/global/ButtonArrow.js";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const StyledWrapper = styled(Wrapper)``;
 const Header = styled.header`
@@ -121,7 +122,7 @@ class Realizacje extends React.Component {
             data-sal-duration="1000"
           >
             <NewsInfo>
-              <Title>{document.node.Title}</Title>
+              <Title>{noHangers(document.node.Title)}</Title>
               <ButtonArrow
                 typeLink
                 link={`/realizacje/${slugify(document.node.Title, {

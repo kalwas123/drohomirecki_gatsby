@@ -22,6 +22,7 @@ import StripeBox from "src/components/global/StripeBox.js";
 
 import LogoLink from "src/components/global/LogoLink.js";
 import SEO from "src/components/global/SEO.js";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const StyledWrapper = styled(Wrapper)``;
 const Header = styled.header`
@@ -58,7 +59,7 @@ const StyledBackgroundImage = styled(Img)`
   width: calc(100 + 0.2rem);
 
   position: relative;
-  z-index: 10;
+  z-index: 8;
 `;
 
 const ContentWrapper = styled(DottedBox)`
@@ -160,7 +161,9 @@ class RealizationLayout extends React.Component {
           data-sal-duration="1000"
         >
           <HeaderTitleWrapper>
-            <BigTitle>{this.props.data.strapiRealizations.Title}</BigTitle>
+            <BigTitle>
+              {noHangers(this.props.data.strapiRealizations.Title)}
+            </BigTitle>
           </HeaderTitleWrapper>
         </Header>
         <ContentWrapper>
@@ -177,7 +180,7 @@ class RealizationLayout extends React.Component {
                   <BodyText>
                     <ReactMarkdown
                       className={"marginP"}
-                      source={document.Text}
+                      source={noHangers(document.Text)}
                     />
                   </BodyText>
                 );
@@ -187,7 +190,9 @@ class RealizationLayout extends React.Component {
                   <Table>
                     <TableRow>
                       <TableRowTitle>Status</TableRowTitle>
-                      <TableRowContent>{document.Status}</TableRowContent>
+                      <TableRowContent>
+                        {noHangers(document.Status)}
+                      </TableRowContent>
                     </TableRow>
                     <TableRow>
                       <TableRowTitle>Rok</TableRowTitle>
@@ -199,15 +204,21 @@ class RealizationLayout extends React.Component {
                     </TableRow>
                     <TableRow>
                       <TableRowTitle>Lokalizacja</TableRowTitle>
-                      <TableRowContent>{document.Location}</TableRowContent>
+                      <TableRowContent>
+                        {noHangers(document.Location)}
+                      </TableRowContent>
                     </TableRow>
                     <TableRow>
                       <TableRowTitle>Rodzaj projektu</TableRowTitle>
-                      <TableRowContent>{document.Type}</TableRowContent>
+                      <TableRowContent>
+                        {noHangers(document.Type)}
+                      </TableRowContent>
                     </TableRow>
                     <TableRow>
                       <TableRowTitle>Autor</TableRowTitle>
-                      <TableRowContent>{document.Author}</TableRowContent>
+                      <TableRowContent>
+                        {noHangers(document.Author)}
+                      </TableRowContent>
                     </TableRow>
                   </Table>
                 );

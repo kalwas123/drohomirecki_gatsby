@@ -18,6 +18,7 @@ import mediaQuery from "src/assets/styles/mediaQuery";
 
 import LogoLink from "src/components/global/LogoLink.js";
 import ButtonArrow from "src/components/global/ButtonArrow.js";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const StyledWrapper = styled(Wrapper)``;
 const Header = styled.header`
@@ -139,8 +140,10 @@ class IndexPage extends React.Component {
           >
             <NewsInfo>
               <Date>{document.node.Date}</Date>
-              <Title>{document.node.Title}</Title>
-              <Description>{document.node.Short_description}</Description>
+              <Title>{noHangers(document.node.Title)}</Title>
+              <Description>
+                {noHangers(document.node.Short_description)}
+              </Description>
               <ButtonArrow
                 typeLink
                 link={`/news-blog/${slugify(document.node.Title, {

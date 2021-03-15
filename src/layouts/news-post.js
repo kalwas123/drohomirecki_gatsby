@@ -21,6 +21,7 @@ import StripeBox from "src/components/global/StripeBox.js";
 
 import LogoLink from "src/components/global/LogoLink.js";
 import SEO from "src/components/global/SEO.js";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const StyledWrapper = styled(Wrapper)``;
 const Header = styled.header`
@@ -57,7 +58,7 @@ const StyledBackgroundImage = styled(Img)`
   width: calc(100 + 0.2rem);
 
   position: relative;
-  z-index: 10;
+  z-index: 8;
 `;
 
 const Date = styled.span`
@@ -132,7 +133,9 @@ class NewsLayout extends React.Component {
           data-sal-duration="1000"
         >
           <HeaderTitleWrapper>
-            <BigTitle>{this.props.data.strapiNewsBlogs.Title}</BigTitle>
+            <BigTitle>
+              {noHangers(this.props.data.strapiNewsBlogs.Title)}
+            </BigTitle>
             <Date>{this.props.data.strapiNewsBlogs.Date}</Date>
           </HeaderTitleWrapper>
         </Header>
@@ -150,7 +153,7 @@ class NewsLayout extends React.Component {
                   <BodyText>
                     <ReactMarkdown
                       className={"marginP"}
-                      source={document.Text}
+                      source={noHangers(document.Text)}
                     />
                   </BodyText>
                 );

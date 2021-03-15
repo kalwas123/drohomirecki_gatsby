@@ -13,6 +13,7 @@ import ReactMarkdown from "react-markdown";
 import Img from "gatsby-image";
 import ContextConsumer from "src/layouts/Context.js";
 import mediaQuery from "src/assets/styles/mediaQuery";
+import noHangers from "src/components/global/fn/noHangers.js";
 
 const PopUpModalWrapper = styled.div`
   width: calc((100vw - 28rem) * 0.5833);
@@ -280,10 +281,10 @@ const PopUpModalProcess = ({ info, open }) => {
                 </CloseBtn>
                 <PopUpModalTop>
                   <ProcessIcon fluid={info.Icon.childImageSharp.fluid} />
-                  <PopUpBigTitle>{info.Title}</PopUpBigTitle>
-                  <ProcessPhase>{info.Phase}</ProcessPhase>
+                  <PopUpBigTitle>{noHangers(info.Title)}</PopUpBigTitle>
+                  <ProcessPhase>{noHangers(info.Phase)}</ProcessPhase>
                   <ProcessSmalDescription>
-                    {info.Description}
+                    {noHangers(info.Description)}
                   </ProcessSmalDescription>
                 </PopUpModalTop>
                 <PopUpContentWrapper>
@@ -292,7 +293,7 @@ const PopUpModalProcess = ({ info, open }) => {
                     <PopUpBodyText>
                       <ReactMarkdown
                         className={"marginP"}
-                        source={info.Long_description}
+                        source={noHangers(info.Long_description)}
                       />
                     </PopUpBodyText>
                   </PopUpTextWrapper>

@@ -837,7 +837,9 @@ class IndexPage extends React.Component {
                   <IdeaBodyText>
                     <ReactMarkdown
                       className={"marginP"}
-                      source={this.props.data.strapiHomePage.Idea_paragraph}
+                      source={noHangers(
+                        this.props.data.strapiHomePage.Idea_paragraph
+                      )}
                     />
                   </IdeaBodyText>
                   <ButtonArrow
@@ -877,7 +879,7 @@ class IndexPage extends React.Component {
                   ></IdeaDecimg2>
                 </IdeaDecimgWrapper2>
                 <IdeaClaim>
-                  <p>{this.props.data.strapiHomePage.Idea_claim}</p>
+                  <p>{noHangers(this.props.data.strapiHomePage.Idea_claim)}</p>
                 </IdeaClaim>
                 <IdeaEmptybottom1 />
                 <IdeaEmptybottom2 />
@@ -897,7 +899,7 @@ class IndexPage extends React.Component {
                 <HistoryEmptyTop />
                 <HisotryTitle>
                   <BigTitle>
-                    {this.props.data.strapiHomePage.History_title}
+                    {noHangers(this.props.data.strapiHomePage.History_title)}
                   </BigTitle>
                 </HisotryTitle>
                 <HistoryEmptyMid />
@@ -938,7 +940,7 @@ class IndexPage extends React.Component {
               <MomentsSectionWrapper>
                 <MomentsTitle>
                   <BigTitle>
-                    {this.props.data.strapiHomePage.Moments_title}
+                    {noHangers(this.props.data.strapiHomePage.Moments_title)}
                   </BigTitle>
                 </MomentsTitle>
                 {this.props.data.allStrapiMoments.edges.map((document) => (
@@ -975,7 +977,7 @@ class IndexPage extends React.Component {
               <ProcessSectionWrapper>
                 <ProcessTitle>
                   <BigTitle>
-                    {this.props.data.strapiHomePage.Process_title}
+                    {noHangers(this.props.data.strapiHomePage.Process_title)}
                   </BigTitle>
                 </ProcessTitle>
                 <ProcessWrapper>
@@ -993,7 +995,7 @@ class IndexPage extends React.Component {
                         <BigTitle>{document.Title}</BigTitle>
                         <ProcessPhase>{document.Phase}</ProcessPhase>
                         <ProcessSmalDescription>
-                          {document.Description}
+                          {noHangers(document.Description)}
                         </ProcessSmalDescription>
                         <ButtonArrow
                           onClick={() =>
