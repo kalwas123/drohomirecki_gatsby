@@ -8,9 +8,9 @@ const StripeBox = styled(DottedBox)`
   background: repeating-linear-gradient(
     -45deg,
     ${colors.borderCol},
-    ${colors.borderCol} 1px,
-    ${colors.white} 1px,
-    ${colors.white} 10px
+    ${colors.borderCol} 0.1rem,
+    ${colors.white} 0.1rem,
+    ${colors.white} 1rem
   );
 `;
 

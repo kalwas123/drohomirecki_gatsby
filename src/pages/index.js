@@ -669,8 +669,8 @@ const ProcessStep = styled(DottedBox)`
 `;
 
 const ProcessIcon = styled(Img)`
-  max-width: 100px;
-  max-height: 80px;
+  max-width: 10rem;
+  max-height: 8rem;
   margin-bottom: 5rem;
   img {
     object-fit: contain !important;
