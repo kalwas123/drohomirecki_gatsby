@@ -260,7 +260,7 @@ export const query = graphql`
         }
       }
     }
-    allStrapiMoments(sort: { fields: Years, order: ASC }) {
+    allStrapiMoments(sort: { fields: Years, order: DESC }) {
       edges {
         node {
           Title
