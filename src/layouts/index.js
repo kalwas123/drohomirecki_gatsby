@@ -20,8 +20,8 @@ const IndexPage = ({ children }) => {
         <GlobalStyle />
 
         {children}
-        <Footer />
       </ContextProviderComponent>
+      <Footer />
     </>
   );
 };
