@@ -725,312 +725,320 @@ const ProcessBtn = styled.a`
 class IndexPage extends React.Component {
   render() {
     return (
-      <StyledWrapper>
-        <ContextConsumer>
-          {({ data, set }) => (
-            <SEO>
-              <SEO
-                title={this.props.data.strapiHomePage.SEO.Title}
-                description={this.props.data.strapiHomePage.SEO.Description}
-                image={
-                  this.props.data.strapiHomePage.SEO.Img.childImageSharp
-                    .original.src
-                }
-              />
-              <Nav />
-              <PopUpModal info={data.modalType} open={data.modalOpen} />
-              <PopUpModalProcess
-                info={data.processModalType}
-                open={data.processModalOpen}
-              />
-              <TopWrapper>
-                <Circle />
-                <Circle />
-              </TopWrapper>
-              <Header>
-                <StyledBackgroundImage
-                  fluid={
-                    this.props.data.strapiHomePage.Background_image
-                      .childImageSharp.fluid
+      <>
+        <Wrapper>
+          <ContextConsumer>
+            {({ data, set }) => (
+              <>
+                <SEO
+                  title={this.props.data.strapiHomePage.SEO.Title}
+                  description={this.props.data.strapiHomePage.SEO.Description}
+                  image={
+                    this.props.data.strapiHomePage.SEO.Img.childImageSharp
+                      .original.src
                   }
-                ></StyledBackgroundImage>
-                <HeaderWrapper>
-                  <HeaderTextBox
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                    data-sal-delay="300"
-                  >
-                    <HeaderTitle>
-                      {noHangers(this.props.data.strapiHomePage.About_title)}
-                    </HeaderTitle>
-                    <HeaderText>
-                      {noHangers(
-                        this.props.data.strapiHomePage.About_paragraph
-                      )}
-                    </HeaderText>
-                    <ButtonArrow
-                      onClick={() =>
-                        set({
-                          modalOpen: true,
-                          modalType: this.props.data.strapiAboutModule,
-                        })
-                      }
+                />
+                <Nav />
+                <PopUpModal info={data.modalType} open={data.modalOpen} />
+                <PopUpModalProcess
+                  info={data.processModalType}
+                  open={data.processModalOpen}
+                />
+                <TopWrapper>
+                  <Circle />
+                  <Circle />
+                </TopWrapper>
+                <Header>
+                  <StyledBackgroundImage
+                    fluid={
+                      this.props.data.strapiHomePage.Background_image
+                        .childImageSharp.fluid
+                    }
+                  ></StyledBackgroundImage>
+                  <HeaderWrapper>
+                    <HeaderTextBox
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                      data-sal-delay="300"
                     >
-                      {console.log(this.props.data.strapiAboutModule)}
-                      Czytaj dalej
-                    </ButtonArrow>
-                  </HeaderTextBox>
-                  <HeaderLeftTop
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                    data-sal-delay="600"
-                  >
-                    <StyledLogo src={Logo} alt="logo" />
-                  </HeaderLeftTop>
-                  <HeaderCenterTop
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                    data-sal-delay="600"
-                  />
-                  <HeaderRightTop
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                    data-sal-delay="600"
-                  />
-                  <HeaderLeftMid
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                    data-sal-delay="300"
-                  />
-                  <HeaderRightMid
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                    data-sal-delay="300"
-                  />
-                  <HeaderLeftBottom
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                  />
-                  <HeaderCenterBottom
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                  />
-                  <HeaderRightBottom
-                    data-sal="slide-up"
-                    data-sal-easing="ease"
-                    data-sal-duration="1000"
-                  />
-                </HeaderWrapper>
-              </Header>
-              <Section>
-                <IdeaSectionWrapper>
-                  <IdeaInfo>
-                    <BigTitle>
-                      Idea marki Holistyczny proces projektowy{" "}
-                    </BigTitle>
-                  </IdeaInfo>
-                  <IdeaStripeBox />
-                  <IdeaInfoBox>
-                    <IdeaBodyText>
-                      <ReactMarkdown
-                        className={"marginP"}
-                        source={noHangers(
-                          this.props.data.strapiHomePage.Idea_paragraph
+                      <HeaderTitle>
+                        {noHangers(this.props.data.strapiHomePage.About_title)}
+                      </HeaderTitle>
+                      <HeaderText>
+                        {noHangers(
+                          this.props.data.strapiHomePage.About_paragraph
                         )}
-                      />
-                    </IdeaBodyText>
-                    <ButtonArrow
-                      onClick={() =>
-                        set({
-                          modalOpen: true,
-                          modalType: this.props.data.strapiIdeaModule,
-                        })
-                      }
+                      </HeaderText>
+                      <ButtonArrow
+                        onClick={() =>
+                          set({
+                            modalOpen: true,
+                            modalType: this.props.data.strapiAboutModule,
+                          })
+                        }
+                      >
+                        {console.log(this.props.data.strapiAboutModule)}
+                        Czytaj dalej
+                      </ButtonArrow>
+                    </HeaderTextBox>
+                    <HeaderLeftTop
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                      data-sal-delay="600"
                     >
-                      Czytaj dalej
-                    </ButtonArrow>
-                  </IdeaInfoBox>
-                  <IdeaImgWrapper>
-                    <IdeaImgBackgroundImage
-                      fluid={
-                        this.props.data.strapiHomePage.Idea_img.childImageSharp
-                          .fluid
-                      }
-                    ></IdeaImgBackgroundImage>
-                  </IdeaImgWrapper>
-                  <IdeaDecimgWrapper1>
-                    <IdeaDecimg1
-                      fluid={
-                        this.props.data.strapiHomePage.Idea_decoration_img_1
-                          .childImageSharp.fluid
-                      }
-                    ></IdeaDecimg1>
-                  </IdeaDecimgWrapper1>
-                  <IdeaEmpty1 />
-                  <IdeaDecimgWrapper2>
-                    <IdeaDecimg2
-                      fluid={
-                        this.props.data.strapiHomePage.Idea_decoration_img_2
-                          .childImageSharp.fluid
-                      }
-                    ></IdeaDecimg2>
-                  </IdeaDecimgWrapper2>
-                  <IdeaClaim>
-                    <p>
-                      {noHangers(this.props.data.strapiHomePage.Idea_claim)}
-                    </p>
-                  </IdeaClaim>
-                  <IdeaEmptybottom1 />
-                  <IdeaEmptybottom2 />
-                  <IdeaEmptybottom3 />
-                </IdeaSectionWrapper>
-              </Section>
-              <Section>
-                <HistorySectionWrapper>
-                  <HistoryImgWrapper>
-                    <HistoryImg
-                      fluid={
-                        this.props.data.strapiHomePage.History_img_1
-                          .childImageSharp.fluid
-                      }
-                    ></HistoryImg>
-                  </HistoryImgWrapper>
-                  <HistoryEmptyTop />
-                  <HisotryTitle>
-                    <BigTitle>
-                      {noHangers(this.props.data.strapiHomePage.History_title)}
-                    </BigTitle>
-                  </HisotryTitle>
-                  <HistoryEmptyMid />
-                  <HistoryStripeBox />
-                  <HistoryInfoBox>
-                    <IdeaBodyText>
-                      <ReactMarkdown
-                        className={"marginP"}
-                        source={noHangers(
-                          this.props.data.strapiHomePage.History_paragraph
-                        )}
-                      />
-                    </IdeaBodyText>
-                    <ButtonArrow
-                      onClick={() =>
-                        set({
-                          modalOpen: true,
-                          modalType: this.props.data.strapiHistoryModule,
-                        })
-                      }
-                    >
-                      Czytaj dalej
-                    </ButtonArrow>
-                  </HistoryInfoBox>
-                  <HistoryColor />
-                  <HistoryEmptyBottom />
-                  <HistoryImgWrapper2>
-                    <HistoryImg2
-                      fluid={
-                        this.props.data.strapiHomePage.History_img_2
-                          .childImageSharp.fluid
-                      }
-                    ></HistoryImg2>
-                  </HistoryImgWrapper2>
-                </HistorySectionWrapper>
-              </Section>
-              <Section>
-                <MomentsSectionWrapper>
-                  <MomentsTitle>
-                    <BigTitle>
-                      {noHangers(this.props.data.strapiHomePage.Moments_title)}
-                    </BigTitle>
-                  </MomentsTitle>
-                  {this.props.data.allStrapiMoments.edges.map((document) => (
-                    <Moment
-                      curentType="Momenty_przelomowe"
-                      type={document.node.Type}
-                      title={document.node.Title}
-                      year={document.node.Years}
-                      description={document.node.Description}
+                      <StyledLogo src={Logo} alt="logo" />
+                    </HeaderLeftTop>
+                    <HeaderCenterTop
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                      data-sal-delay="600"
                     />
-                  ))}
-                  <MomentsBottom>
-                    <MomentsImgWrapper>
-                      <MomentsImg
+                    <HeaderRightTop
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                      data-sal-delay="600"
+                    />
+                    <HeaderLeftMid
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                      data-sal-delay="300"
+                    />
+                    <HeaderRightMid
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                      data-sal-delay="300"
+                    />
+                    <HeaderLeftBottom
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                    />
+                    <HeaderCenterBottom
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                    />
+                    <HeaderRightBottom
+                      data-sal="slide-up"
+                      data-sal-easing="ease"
+                      data-sal-duration="1000"
+                    />
+                  </HeaderWrapper>
+                </Header>
+                <Section>
+                  <IdeaSectionWrapper>
+                    <IdeaInfo>
+                      <BigTitle>
+                        Idea marki Holistyczny proces projektowy{" "}
+                      </BigTitle>
+                    </IdeaInfo>
+                    <IdeaStripeBox />
+                    <IdeaInfoBox>
+                      <IdeaBodyText>
+                        <ReactMarkdown
+                          className={"marginP"}
+                          source={noHangers(
+                            this.props.data.strapiHomePage.Idea_paragraph
+                          )}
+                        />
+                      </IdeaBodyText>
+                      <ButtonArrow
+                        onClick={() =>
+                          set({
+                            modalOpen: true,
+                            modalType: this.props.data.strapiIdeaModule,
+                          })
+                        }
+                      >
+                        Czytaj dalej
+                      </ButtonArrow>
+                    </IdeaInfoBox>
+                    <IdeaImgWrapper>
+                      <IdeaImgBackgroundImage
                         fluid={
-                          this.props.data.strapiHomePage.Moments_img
+                          this.props.data.strapiHomePage.Idea_img
                             .childImageSharp.fluid
                         }
-                      ></MomentsImg>
-                    </MomentsImgWrapper>
-                    <MomentsBtnWrapper>
-                      <MomentsBtn to="/momenty_przelomowe">
-                        przejdź do kalendarium
-                      </MomentsBtn>
-                    </MomentsBtnWrapper>
-                  </MomentsBottom>
-                  <MomentsEmptyWrapper>
-                    <MomentsEmpty1 />
-                    <MomentsEmpty2 />
-                  </MomentsEmptyWrapper>
-                </MomentsSectionWrapper>
-              </Section>
-              <Section id="oferta">
-                <ProcessSectionWrapper>
-                  <ProcessTitle>
-                    <BigTitle>
-                      {noHangers(this.props.data.strapiHomePage.Process_title)}
-                    </BigTitle>
-                  </ProcessTitle>
-                  <ProcessWrapper>
-                    {this.props.data.strapiHomePage.Process_step.map(
-                      (document, index) => (
-                        <ProcessStep>
-                          <ProcessTimeline>
-                            <ProcessNum>
-                              <BodyText>{index + 1}</BodyText>
-                            </ProcessNum>
-                          </ProcessTimeline>
-                          <ProcessIcon
-                            fluid={document.Icon.childImageSharp.fluid}
-                          />
-                          <BigTitle>{document.Title}</BigTitle>
-                          <ProcessPhase>{document.Phase}</ProcessPhase>
-                          <ProcessSmalDescription>
-                            {noHangers(document.Description)}
-                          </ProcessSmalDescription>
-                          <ButtonArrow
-                            onClick={() =>
-                              set({
-                                processModalOpen: true,
-                                processModalType: document,
-                              })
-                            }
-                          >
-                            Czytaj dalej
-                          </ButtonArrow>
-                        </ProcessStep>
-                      )
-                    )}
-                  </ProcessWrapper>
-                  <ProcessCta>
-                    <ProcessBtn
-                      href={`mailto: ${this.props.data.strapiContact.Mail}`}
-                    >
-                      zapytaj o ofertę
-                    </ProcessBtn>
-                  </ProcessCta>
-                </ProcessSectionWrapper>
-              </Section>
-            </SEO>
-          )}
-        </ContextConsumer>
-      </StyledWrapper>
+                      ></IdeaImgBackgroundImage>
+                    </IdeaImgWrapper>
+                    <IdeaDecimgWrapper1>
+                      <IdeaDecimg1
+                        fluid={
+                          this.props.data.strapiHomePage.Idea_decoration_img_1
+                            .childImageSharp.fluid
+                        }
+                      ></IdeaDecimg1>
+                    </IdeaDecimgWrapper1>
+                    <IdeaEmpty1 />
+                    <IdeaDecimgWrapper2>
+                      <IdeaDecimg2
+                        fluid={
+                          this.props.data.strapiHomePage.Idea_decoration_img_2
+                            .childImageSharp.fluid
+                        }
+                      ></IdeaDecimg2>
+                    </IdeaDecimgWrapper2>
+                    <IdeaClaim>
+                      <p>
+                        {noHangers(this.props.data.strapiHomePage.Idea_claim)}
+                      </p>
+                    </IdeaClaim>
+                    <IdeaEmptybottom1 />
+                    <IdeaEmptybottom2 />
+                    <IdeaEmptybottom3 />
+                  </IdeaSectionWrapper>
+                </Section>
+                <Section>
+                  <HistorySectionWrapper>
+                    <HistoryImgWrapper>
+                      <HistoryImg
+                        fluid={
+                          this.props.data.strapiHomePage.History_img_1
+                            .childImageSharp.fluid
+                        }
+                      ></HistoryImg>
+                    </HistoryImgWrapper>
+                    <HistoryEmptyTop />
+                    <HisotryTitle>
+                      <BigTitle>
+                        {noHangers(
+                          this.props.data.strapiHomePage.History_title
+                        )}
+                      </BigTitle>
+                    </HisotryTitle>
+                    <HistoryEmptyMid />
+                    <HistoryStripeBox />
+                    <HistoryInfoBox>
+                      <IdeaBodyText>
+                        <ReactMarkdown
+                          className={"marginP"}
+                          source={noHangers(
+                            this.props.data.strapiHomePage.History_paragraph
+                          )}
+                        />
+                      </IdeaBodyText>
+                      <ButtonArrow
+                        onClick={() =>
+                          set({
+                            modalOpen: true,
+                            modalType: this.props.data.strapiHistoryModule,
+                          })
+                        }
+                      >
+                        Czytaj dalej
+                      </ButtonArrow>
+                    </HistoryInfoBox>
+                    <HistoryColor />
+                    <HistoryEmptyBottom />
+                    <HistoryImgWrapper2>
+                      <HistoryImg2
+                        fluid={
+                          this.props.data.strapiHomePage.History_img_2
+                            .childImageSharp.fluid
+                        }
+                      ></HistoryImg2>
+                    </HistoryImgWrapper2>
+                  </HistorySectionWrapper>
+                </Section>
+                <Section>
+                  <MomentsSectionWrapper>
+                    <MomentsTitle>
+                      <BigTitle>
+                        {noHangers(
+                          this.props.data.strapiHomePage.Moments_title
+                        )}
+                      </BigTitle>
+                    </MomentsTitle>
+                    {this.props.data.allStrapiMoments.edges.map((document) => (
+                      <Moment
+                        curentType="Momenty_przelomowe"
+                        type={document.node.Type}
+                        title={document.node.Title}
+                        year={document.node.Years}
+                        description={document.node.Description}
+                      />
+                    ))}
+                    <MomentsBottom>
+                      <MomentsImgWrapper>
+                        <MomentsImg
+                          fluid={
+                            this.props.data.strapiHomePage.Moments_img
+                              .childImageSharp.fluid
+                          }
+                        ></MomentsImg>
+                      </MomentsImgWrapper>
+                      <MomentsBtnWrapper>
+                        <MomentsBtn to="/momenty_przelomowe">
+                          przejdź do kalendarium
+                        </MomentsBtn>
+                      </MomentsBtnWrapper>
+                    </MomentsBottom>
+                    <MomentsEmptyWrapper>
+                      <MomentsEmpty1 />
+                      <MomentsEmpty2 />
+                    </MomentsEmptyWrapper>
+                  </MomentsSectionWrapper>
+                </Section>
+                <Section id="oferta">
+                  <ProcessSectionWrapper>
+                    <ProcessTitle>
+                      <BigTitle>
+                        {noHangers(
+                          this.props.data.strapiHomePage.Process_title
+                        )}
+                      </BigTitle>
+                    </ProcessTitle>
+                    <ProcessWrapper>
+                      {this.props.data.strapiHomePage.Process_step.map(
+                        (document, index) => (
+                          <ProcessStep>
+                            <ProcessTimeline>
+                              <ProcessNum>
+                                <BodyText>{index + 1}</BodyText>
+                              </ProcessNum>
+                            </ProcessTimeline>
+                            <ProcessIcon
+                              fluid={document.Icon.childImageSharp.fluid}
+                            />
+                            <BigTitle>{document.Title}</BigTitle>
+                            <ProcessPhase>{document.Phase}</ProcessPhase>
+                            <ProcessSmalDescription>
+                              {noHangers(document.Description)}
+                            </ProcessSmalDescription>
+                            <ButtonArrow
+                              onClick={() =>
+                                set({
+                                  processModalOpen: true,
+                                  processModalType: document,
+                                })
+                              }
+                            >
+                              Czytaj dalej
+                            </ButtonArrow>
+                          </ProcessStep>
+                        )
+                      )}
+                    </ProcessWrapper>
+                    <ProcessCta>
+                      <ProcessBtn
+                        href={`mailto: ${this.props.data.strapiContact.Mail}`}
+                      >
+                        zapytaj o ofertę
+                      </ProcessBtn>
+                    </ProcessCta>
+                  </ProcessSectionWrapper>
+                </Section>
+              </>
+            )}
+          </ContextConsumer>
+        </Wrapper>
+      </>
     );
   }
 }
