@@ -17,8 +17,7 @@ const IndexPage = ({ children }) => {
   return (
     <ContextProviderComponent>
       <GlobalStyle />
-
-      {children}
+      <div>{children}</div>
       <Footer />
     </ContextProviderComponent>
   );
