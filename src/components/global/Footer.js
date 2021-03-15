@@ -147,45 +147,47 @@ const Footer = () => {
         }
       `}
       render={(data) => (
-        <StyledWrapper>
-          <FooterWrapper
-            id="footer"
-            data-sal="slide-down"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-          >
-            <img src={Logo} alt="logo" />
-            <FotterBottom>
-              <BodyText>{data.strapiContact.Name}</BodyText>
-              <BodyText>
-                {data.strapiContact.Street} <br />
-                {data.strapiContact.City}
-              </BodyText>
-              <BodyText>
-                <a href={`tel:${data.strapiContact.Tel}`}>
-                  {data.strapiContact.Tel}
-                </a>
-                <br />
-                <a href={`mailto:${data.strapiContact.Mail}`}>
-                  {data.strapiContact.Mail}
-                </a>
-              </BodyText>
-              <BodyText>
-                <a href={data.strapiContact.LinkedIn} target="blank">
-                  LinkedIn
-                </a>
-                <br />
-                <a href={data.strapiContact.Instagram} target="blank">
-                  Instagram
-                </a>
-              </BodyText>
-            </FotterBottom>
-          </FooterWrapper>
-          <CircleWrapper>
-            <Circle />
-            <Circle />
-          </CircleWrapper>
-        </StyledWrapper>
+        <div>
+          <StyledWrapper>
+            <FooterWrapper
+              id="footer"
+              data-sal="slide-down"
+              data-sal-easing="ease"
+              data-sal-duration="1000"
+            >
+              <img src={Logo} alt="logo" />
+              <FotterBottom>
+                <BodyText>{data.strapiContact.Name}</BodyText>
+                <BodyText>
+                  {data.strapiContact.Street} <br />
+                  {data.strapiContact.City}
+                </BodyText>
+                <BodyText>
+                  <a href={`tel:${data.strapiContact.Tel}`}>
+                    {data.strapiContact.Tel}
+                  </a>
+                  <br />
+                  <a href={`mailto:${data.strapiContact.Mail}`}>
+                    {data.strapiContact.Mail}
+                  </a>
+                </BodyText>
+                <BodyText>
+                  <a href={data.strapiContact.LinkedIn} target="blank">
+                    LinkedIn
+                  </a>
+                  <br />
+                  <a href={data.strapiContact.Instagram} target="blank">
+                    Instagram
+                  </a>
+                </BodyText>
+              </FotterBottom>
+            </FooterWrapper>
+            <CircleWrapper>
+              <Circle />
+              <Circle />
+            </CircleWrapper>
+          </StyledWrapper>
+        </div>
       )}
     />
   );
