@@ -39,7 +39,7 @@ const Circle = styled.div`
     position: absolute;
     left: -4rem;
     width: 4rem;
-    height: 0.1rem;
+    height: 1px;
     transform: translate(0, 1.75rem);
     background-image: ${borderStyles.backgroundImageH};
     background-size: ${borderStyles.backgroundSizeH};

@@ -20,7 +20,7 @@ const CloseBtn = styled.button`
   right: calc(${sizes.bigMargin}rem - 7rem);
   flex-shrink: 1;
   border-radius: 3.5rem;
-  border: 0.1rem solid ${colors.borderCol};
+  border: 1px solid ${colors.borderCol};
   width: 3.5rem !important;
   height: 3.5rem;
   transform: translateY(-50%);
@@ -37,7 +37,7 @@ const CloseBtn = styled.button`
     position: absolute;
     left: -4rem;
     width: 4rem;
-    height: 0.1rem;
+    height: 1px
     background-image: ${borderStyles.backgroundImageH};
     background-size: ${borderStyles.backgroundSizeH};
   }
