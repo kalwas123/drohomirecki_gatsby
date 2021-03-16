@@ -37,7 +37,7 @@ const CloseBtn = styled.button`
     position: absolute;
     left: -4rem;
     width: 4rem;
-    height: 1px
+    height: 1px;
     background-image: ${borderStyles.backgroundImageH};
     background-size: ${borderStyles.backgroundSizeH};
   }
