@@ -108,11 +108,17 @@ const LinkWrapper = styled(Link)`
 
 const ContentCol = styled(DottedBox)`
   width: calc(58.33% - 4rem);
+  ::before {
+    display: none;
+  }
   ${BodyText} {
     padding: ${sizes.smallInMargin}rem;
   }
   @media (max-width: ${mediaQuery.tablet}) {
     width: calc(100% - 4rem);
+    ::before {
+      display: block;
+    }
   }
 `;
 

@@ -46,6 +46,7 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: "https://drohomirecki-cms.herokuapp.com",
+        // apiURL: "http://localhost:1337",
         contentTypes: ["moments", "news-blogs", "realizations"],
         singleTypes: [
           "home-page",
